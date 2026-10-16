@@ -21,6 +21,7 @@ docs/               protocol notes and media
 cd extension
 bun install
 bun run build        # or: bun run watch
+bun test             # git logic on real temp repos, plus both plugin scripts
 ```
 
 Open the repo in VS Code and press F5 ("Run extension") to start an Extension Development Host with your build.

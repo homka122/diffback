@@ -87,6 +87,7 @@
   "scripts": {
     "build": "tsc -p .",
     "watch": "tsc -p . --watch",
+    "test": "bun test",
     "package": "cp ../README.md ../LICENSE ../CHANGELOG.md . && vsce package --no-dependencies --baseContentUrl https://github.com/homka122/diffback/blob/main --baseImagesUrl https://github.com/homka122/diffback/raw/main -o diffback.vsix",
     "vscode:prepublish": "npm run build"
   },
