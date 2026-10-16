@@ -17,5 +17,8 @@
     "review-comments",
     "git"
   ],
-  "icon": ".claude-plugin/icon.png"
+  "icon": ".claude-plugin/icon.png",
+  "documentationUrl": "https://github.com/homka122/diffback#readme",
+  "supportUrl": "https://github.com/homka122/diffback/issues",
+  "privacyPolicyUrl": "https://github.com/homka122/diffback/blob/main/PRIVACY.md"
 }
