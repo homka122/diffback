@@ -10,5 +10,12 @@
   "homepage": "https://github.com/homka122/diffback#readme",
   "repository": "https://github.com/homka122/diffback",
   "license": "MIT",
-  "keywords": ["code-review", "diff", "vscode", "review-comments", "git"]
+  "keywords": [
+    "code-review",
+    "diff",
+    "vscode",
+    "review-comments",
+    "git"
+  ],
+  "icon": ".claude-plugin/icon.png"
 }
