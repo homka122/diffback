@@ -54,7 +54,7 @@ Claude never commits, pushes or opens a PR because you published comments; it wa
 
 - VS Code 1.106 or newer, with the `code` shell command on your `PATH`. For a VS Code fork, set `DIFFBACK_EDITOR` (for example to `cursor`).
 - `git` and `bash`.
-- Linux or macOS. Windows is untested. WSL may work, but it is untested too.
+- Linux (tested on Fedora). On macOS the scripts run in CI under the stock bash, but the extension itself hasn't been tried there yet: reports welcome. Windows is untested; WSL may work.
 
 ## How a review goes
 
