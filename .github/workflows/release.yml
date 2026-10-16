@@ -18,7 +18,7 @@ jobs:
       run:
         working-directory: extension
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: oven-sh/setup-bun@v2
       - run: bun install --frozen-lockfile
       - run: bun run build
@@ -33,4 +33,7 @@ jobs:
         run: bunx vsce publish --packagePath diffback.vsix
       - name: Publish to Open VSX
         if: env.OVSX_PAT != ''
-        run: bunx ovsx publish diffback.vsix
+        run: |
+          # The namespace exists after the first release; creating it again just fails harmlessly.
+          bunx ovsx create-namespace homka122 || true
+          bunx ovsx publish diffback.vsix
