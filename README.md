@@ -21,11 +21,13 @@ Claude opens every changed file in one scrollable VS Code diff. You select any c
 
 ## Why
 
-Claude Code just finished a task and touched nine files. You run `git diff` and scroll a wall of red and green in the terminal. Something in `handlers.py` looks off, so you switch to the chat and type "in handlers.py, around line 85, the retry loop, why does it swallow the exception?", then go back and try to remember what else bothered you.
+Claude Code finishes a task that touched nine files. I used to click through them one by one in VS Code's Source Control view, then switch to the terminal and type into the chat "in handlers.py, the retry loop, why does it...", and by the time I got back to the diff I had forgotten the second thing. More than once I just said "looks fine, commit".
 
 I wanted the review step I already know from pull requests: read the whole change, point at the line, leave a note, send it. That is what diffback does, and you don't type file names or line numbers into the chat.
 
-[Watch the full two-minute demo](docs/assets/demo.mp4): a real session, cut for length.
+The full two-minute demo, a real session cut for length:
+
+https://github.com/user-attachments/assets/aaaa14a8-7859-409b-8623-8780aece06fa
 
 ## Install
 
@@ -145,8 +147,8 @@ The extension and the file protocol don't care who is on the other end. The skil
 **Does it work in Cursor or another VS Code fork?**
 Set `DIFFBACK_EDITOR=cursor` (or your fork's CLI) and install the extension in that editor. Forks are untested. The internal multi-diff command may or may not exist there.
 
-**Claude asks for permission to run the scripts. Is that expected?**
-Yes, the first time. Claude Code asks before running the plugin's `show-diff.sh` and `wait-review.sh`. Pick "Yes, and don't ask again" once for each and the review flows on its own from then on.
+**Claude asks for permission first. Is that expected?**
+Yes, the first time. Claude Code asks whether to use the diffback skill, and then before running the plugin's `show-diff.sh` and `wait-review.sh`. Pick "Yes, and don't ask again" once for each and the review flows on its own from then on.
 
 **I replied in chat instead of the panel. Is that a problem?**
 No. The watcher keeps running in the background and does nothing until the next Publish.
