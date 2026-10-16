@@ -13,7 +13,7 @@ amended, pushed or opened as a PR until they explicitly approve in chat.
 
 | Before | Prepare | Scope |
 |---|---|---|
-| a commit | Stage exactly what the commit should contain: check `git status --short`, stage files by name, not with `git add -A`. | `staged` |
+| a commit | Stage exactly what the commit should contain: check `git status --short`, stage files by name, not with `git add -A`. If something unrelated is already staged, ask before unstaging it. | `staged` |
 | an amend | Stage the additions. Say that the diff shows only what the amend adds; offer `HEAD~1...HEAD` if they want the whole commit. | `staged` |
 | a push | Find the upstream (`git rev-parse --abbrev-ref @{u}`). If these commits were already reviewed and approved in this session, skip the review. | `<upstream>...HEAD` |
 | a pull request | `git fetch origin`, then take the default branch from `gh repo view --json defaultBranchRef -q .defaultBranchRef.name` or `git symbolic-ref --short refs/remotes/origin/HEAD`. Use the remote-tracking ref, e.g. `origin/main`, never a possibly stale local branch. Mention uncommitted changes: they will not be in the PR. | `origin/<base>...HEAD` |
@@ -57,7 +57,8 @@ The watcher finishes when the user publishes or closes the window, and prints JS
   ask in chat how to proceed.
 
 Go through every comment: `file:lines → what you will do`. Answer questions in chat without
-touching code. Then make the changes and show the new state:
+touching code. If nothing needs to change, start the watcher again right away so the next Publish
+reaches you. Otherwise make the changes and show the new state:
 
 - commit or amend flow: stage the fixes and show `staged` again;
 - push or PR flow: the fixes are not in the commits yet, so show them as `uncommitted` and say it
