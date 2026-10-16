@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <title>diffback</title>
+  <defs>
+    <!-- removed line above, added line below; 8-unit hunk divider = 1px at 32 -->
+    <clipPath id="del"><rect width="256" height="136"/></clipPath>
+    <clipPath id="add"><rect y="144" width="256" height="112"/></clipPath>
+    <!-- all vertical edges on a 16-unit grid (crisp at 32 and 16 px):
+         bowl r64 @ (128,144) spans x 64-192; stem x 160-192 (32 wide, = bowl wall);
+         counter = chat bubble r32 @ (128,142) with a tail pointing down-left -->
+    <path id="d" d="M64 144A64 64 0 1 1 192 144A64 64 0 1 1 64 144Z
+                    M98.33 153.99L92.64 177.36L116.01 171.67A32 32 0 1 0 98.33 153.99Z
+                    M160 208V56A16 16 0 0 1 192 56V208Z"/>
+  </defs>
+  <rect width="256" height="256" rx="56" fill="#15181e"/>
+  <use href="#d" clip-path="url(#del)" fill="#f2545b"/>
+  <use href="#d" clip-path="url(#add)" fill="#3ccf6e"/>
+</svg>

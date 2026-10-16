@@ -1,0 +1,99 @@
+{
+  "name": "diffback",
+  "displayName": "diffback — review your coding agent's diff",
+  "description": "Review what your AI coding agent changed like a pull request: one scrollable diff, comments on any selection, publish straight back to the agent.",
+  "version": "0.1.0",
+  "publisher": "homka122",
+  "license": "MIT",
+  "icon": "media/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/homka122/diffback"
+  },
+  "homepage": "https://github.com/homka122/diffback#readme",
+  "bugs": {
+    "url": "https://github.com/homka122/diffback/issues"
+  },
+  "keywords": [
+    "claude",
+    "claude code",
+    "ai",
+    "agent",
+    "code review",
+    "diff",
+    "review comments"
+  ],
+  "categories": [
+    "SCM Providers",
+    "Other"
+  ],
+  "engines": {
+    "vscode": "^1.106.0"
+  },
+  "main": "./out/extension.js",
+  "activationEvents": [
+    "workspaceContains:.git",
+    "onStartupFinished"
+  ],
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": "limited",
+      "description": "diffback only runs read-only git commands to list changed files, so it works in Restricted Mode."
+    }
+  },
+  "contributes": {
+    "viewsContainers": {
+      "secondarySidebar": [
+        {
+          "id": "diffback",
+          "title": "diffback",
+          "icon": "media/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "diffback": [
+        {
+          "type": "webview",
+          "id": "diffback.review",
+          "name": "Review"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "diffback.publish",
+        "title": "Publish review",
+        "category": "diffback"
+      },
+      {
+        "command": "diffback.showPanel",
+        "title": "Show review panel",
+        "category": "diffback"
+      }
+    ],
+    "configuration": {
+      "title": "diffback",
+      "properties": {
+        "diffback.selectionDelay": {
+          "type": "number",
+          "default": 100,
+          "minimum": 0,
+          "description": "Milliseconds to wait after a selection settles before offering a comment box."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build": "tsc -p .",
+    "watch": "tsc -p . --watch",
+    "package": "cp ../README.md ../LICENSE ../CHANGELOG.md . && vsce package --no-dependencies --baseContentUrl https://github.com/homka122/diffback/blob/main --baseImagesUrl https://github.com/homka122/diffback/raw/main -o diffback.vsix",
+    "vscode:prepublish": "npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "~1.106.0",
+    "@vscode/vsce": "^3.0.0",
+    "typescript": "^5.6.0"
+  }
+}

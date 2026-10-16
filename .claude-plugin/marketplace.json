@@ -1,0 +1,17 @@
+{
+  "name": "diffback",
+  "owner": {
+    "name": "homka122",
+    "url": "https://github.com/homka122"
+  },
+  "description": "Review your coding agent's diff like a pull request.",
+  "plugins": [
+    {
+      "name": "diffback",
+      "source": "./plugin",
+      "description": "Claude opens one scrollable diff in VS Code; you comment on any selection; your comments come straight back.",
+      "category": "development",
+      "tags": ["code-review", "diff", "vscode"]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "diffback",
+  "displayName": "diffback",
+  "version": "0.1.0",
+  "description": "Review your coding agent's changes like a pull request: Claude opens one scrollable diff in VS Code, you comment on any selection, and your comments come straight back.",
+  "author": {
+    "name": "homka122",
+    "url": "https://github.com/homka122"
+  },
+  "homepage": "https://github.com/homka122/diffback#readme",
+  "repository": "https://github.com/homka122/diffback",
+  "license": "MIT",
+  "keywords": ["code-review", "diff", "vscode", "review-comments", "git"]
+}

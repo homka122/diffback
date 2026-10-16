@@ -1,0 +1,40 @@
+name: Bug report
+description: Something does not work the way the README says it should.
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected, and what you saw instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Staged two files
+        2. Asked Claude to show the diff
+        3. ...
+  - type: input
+    id: versions
+    attributes:
+      label: Versions
+      description: diffback extension version, VS Code (or fork) version, Claude Code version.
+      placeholder: diffback 0.1.0, VS Code 1.105.1, Claude Code 2.1.300
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: OS
+      placeholder: macOS 15.4 / Ubuntu 24.04 / Fedora 42
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: Output of the show-diff.sh / wait-review.sh commands, and anything mentioning diffback in "Developer: Show Logs… → Extension Host".
+      render: text

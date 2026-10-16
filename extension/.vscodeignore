@@ -1,0 +1,7 @@
+src/**
+node_modules/**
+out/**/*.map
+tsconfig.json
+*.vsix
+media/logo.svg
+bun.lock

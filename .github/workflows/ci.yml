@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  extension:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: extension
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - run: bun install --frozen-lockfile
+      - run: bun run build
+      - run: bun run package
+      - uses: actions/upload-artifact@v4
+        with:
+          name: diffback-vsix
+          path: extension/diffback.vsix
+
+  plugin:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Shellcheck
+        if: runner.os == 'Linux'
+        run: shellcheck plugin/scripts/*.sh
+      - name: Manifests are valid JSON
+        run: |
+          for f in .claude-plugin/marketplace.json plugin/.claude-plugin/plugin.json; do
+            python3 -m json.tool "$f" > /dev/null
+          done
+      - name: Scripts run under the system bash
+        run: |
+          git init -q demo && cd demo
+          git -c user.name=ci -c user.email=ci@example.com commit -q --allow-empty -m init
+          set +e
+          bash ../plugin/scripts/show-diff.sh . staged
+          code=$?
+          set -e
+          test "$code" -eq 3 # nothing staged

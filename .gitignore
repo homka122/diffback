@@ -1,0 +1,8 @@
+node_modules/
+extension/out/
+*.vsix
+.DS_Store
+# copied from the repo root at packaging time
+extension/README.md
+extension/LICENSE
+extension/CHANGELOG.md
